@@ -46,11 +46,7 @@ class Packagetype(models.Model):
 
 
 class Letter(models.Model):
-    TYPEOFLETTER = (
-        ('письмо', 1),
-        ('заказное письмо', 2),
-        ('ценное письмо', 3),
-        ('экспресс-письмо', 4),)
+
     id = models.AutoField(primary_key=True)
     sender = models.CharField(max_length=100, verbose_name='ФИО отправиеля')
     recipient = models.CharField(max_length=100, verbose_name='Фио получателя')
@@ -61,9 +57,8 @@ class Letter(models.Model):
     recipients_index = models.PositiveIntegerField(default=0,
                                                    validators=[MinValueValidator(999), MaxValueValidator(999999)],
                                                    verbose_name='Индекс места получателя')
-    # type_of_letter = models.ForeignKey(Typeofletter, default=None, on_delete=models.CASCADE, verbose_name='Тип письма')
+    type_of_letter = models.ForeignKey(Typeofletter, null= True, on_delete=models.CASCADE, verbose_name='Тип письма')
     letter_weight = models.FloatField(default=0, verbose_name='Вес письма')
-    typeofletter = models.CharField(max_length=20, default=None, choices=TYPEOFLETTER, verbose_name='Тип письма')
 
     def __str__(self):
         return str(self.id)
@@ -96,14 +91,7 @@ class Packagetype(models.Model):
 
 
 class Package(models.Model):
-    PACKAGETYPE= (
-        ('мелкий пакет', 1),
-        ('посылка', 2),
-        ('посылка 1 класса', 3),
-        ('ценная посылка', 4),
-        ('посылка международная', 5),
-        ('экспресс-посылка', 6),
-    )
+
 
 
     id = models.AutoField(primary_key=True)
@@ -116,9 +104,9 @@ class Package(models.Model):
     recipients_index = models.PositiveIntegerField(default=000000,
                                                    validators=[MinValueValidator(999), MaxValueValidator(999999)],
                                                    verbose_name='Индекс места получателя')
-    # type_of_letter = models.ForeignKey(Packagetype, default=None, on_delete=models.CASCADE, verbose_name='Тип письма')
+    package_type = models.ForeignKey(Packagetype, null=True, on_delete=models.CASCADE, verbose_name='Тип письма')
     package_weight = models.FloatField(default=0,  verbose_name='Вес посылки')
-    package_type = models.CharField(max_length=50, default=0, choices=PACKAGETYPE, verbose_name='Тип посылки')
+
 
     def __str__(self):
         return str(self.id)

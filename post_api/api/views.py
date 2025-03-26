@@ -16,11 +16,11 @@ class PackageViewSet(viewsets.ModelViewSet):
     serializer_class = PackageSerializer
 
 
-class TypeofletterViewSet(viewsets.ModelViewSet):
+class TypeofletterViewSet(viewsets.ReadOnlyModelViewSet):
     queryset = Typeofletter.objects.all()
     serializer_class = TypeofletterSerializer
 
 
-class PackagetypeViewSet(viewsets.ModelViewSet):
+class PackagetypeViewSet(viewsets.ReadOnlyModelViewSet):
     queryset = Packagetype.objects.all()
     serializer_class = PackagetypeSerializer
