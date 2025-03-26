@@ -12,3 +12,14 @@ class PackageSerializer(serializers.ModelSerializer):
         model = Package
         fields = '__all__'
 
+
+class TypeofletterSerializer(serializers.ModelSerializer):
+    class Meta:
+        model = Typeofletter
+        fields = '__all__'
+
+class PackagetypeSerializer(serializers.ModelSerializer):
+    class Meta:
+        model = Packagetype
+        fields = '__all__'
+

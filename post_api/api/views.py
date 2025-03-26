@@ -1,17 +1,26 @@
 from django.shortcuts import render
 
-from rest_framework import viewsets, status
-
+from rest_framework import viewsets, status, generics
+from django.views.generic import ListView
 from .models import *
-from .serializers import LeterSerializer, PackageSerializer
+from .serializers import LeterSerializer, PackageSerializer, TypeofletterSerializer, PackagetypeSerializer
 
 
-class LetterViewSet(viewsets.ViewSet):
+class LetterViewSet(viewsets.ModelViewSet):
     queryset = Letter.objects.all()
-    serializer = LeterSerializer
+    serializer_class = LeterSerializer
 
 
-class PackageViewSet(viewsets.ViewSet):
+class PackageViewSet(viewsets.ModelViewSet):
     queryset = Package.objects.all()
-    serializer = PackageSerializer
+    serializer_class = PackageSerializer
 
+
+class TypeofletterViewSet(viewsets.ModelViewSet):
+    queryset = Typeofletter.objects.all()
+    serializer_class = TypeofletterSerializer
+
+
+class PackagetypeViewSet(viewsets.ModelViewSet):
+    queryset = Packagetype.objects.all()
+    serializer_class = PackagetypeSerializer

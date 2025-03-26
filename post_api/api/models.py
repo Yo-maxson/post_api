@@ -6,10 +6,10 @@ from django.db import models
 
 class Typeofletter(models.Model):
     TYPEOFLETTER = (
-        (1, 'письмо'),
-        (2, 'заказное письмо'),
-        (3, 'ценное письмо'),
-        (4, 'экспресс-письмо'),)
+        ('письмо', 'письмо'),
+        ('заказное письмо', 'заказное письмо'),
+        ('ценное письмо', 'ценное письмо'),
+        ('экспресс-письмо', 'экспресс-письмо'),)
 
     id = models.AutoField(primary_key=True)
     # name = models.CharField(max_length=50, null=True, blank=True, default='Отсутствует', verbose_name='Имя CVE')
