@@ -37,12 +37,6 @@ class Letter(models.Model):
     receiving = models.CharField(max_length=100, verbose_name='Пункт получения')
     senders_index = models.CharField(max_length=6, verbose_name='Индекс места отправителя')
     recipients_index = models.CharField(max_length=6, verbose_name='Индекс места получателя')
-    # senders_index = models.PositiveIntegerField(default=0,
-    #                                             validators=[MinValueValidator(999), MaxValueValidator(999999)],
-    #                                             verbose_name='Индекс места отправителя')
-    # recipients_index = models.PositiveIntegerField(default=0,
-    #                                                validators=[MinValueValidator(999), MaxValueValidator(999999)],
-    #                                                verbose_name='Индекс места получателя')
     type_of_letter = models.ForeignKey(Typeofletter, null=True, on_delete=models.CASCADE, verbose_name='Тип письма')
     letter_weight = models.FloatField(default=0, verbose_name='Вес письма')
 
@@ -62,15 +56,8 @@ class Package(models.Model):
     recipient = models.CharField(max_length=100, verbose_name='Фио получателя')
     sending = models.CharField(max_length=100, verbose_name='Пункт отправки')
     receiving = models.CharField(max_length=100, verbose_name='Пункт получения')
-    # senders_index = models.PositiveIntegerField(default=000000,
-    #                                             validators=[MinValueValidator(999), MaxValueValidator(999999)],
-    #                                             verbose_name='Индекс места отправителя')
-    # recipients_index = models.PositiveIntegerField(default=000000,
-    #                                                validators=[MinValueValidator(999), MaxValueValidator(999999)],
-    #                                                verbose_name='Индекс места получателя')
     senders_index = models.CharField(max_length=6, verbose_name='Индекс места отправителя')
     recipients_index = models.CharField(max_length=6, verbose_name='Индекс места получателя')
-
     package_type = models.ForeignKey(Packagetype, null=True, on_delete=models.CASCADE, verbose_name='Тип письма')
     package_weight = models.FloatField(default=0, verbose_name='Вес посылки')
 
