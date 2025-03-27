@@ -8,9 +8,6 @@ router.register(r'package', PackageViewSet)
 router.register(r'type_letter', TypeofletterViewSet)
 router.register(r'type_package', PackagetypeViewSet)
 
-
-
-
 urlpatterns = [
     path('post/', include(router.urls)),
 ]

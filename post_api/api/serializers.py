@@ -1,6 +1,7 @@
 from rest_framework import serializers
 from .models import *
 
+
 class LeterSerializer(serializers.ModelSerializer):
     class Meta:
         model = Letter
@@ -18,8 +19,8 @@ class TypeofletterSerializer(serializers.ModelSerializer):
         model = Typeofletter
         fields = '__all__'
 
+
 class PackagetypeSerializer(serializers.ModelSerializer):
     class Meta:
         model = Packagetype
         fields = '__all__'
-
