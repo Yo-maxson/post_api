@@ -1,7 +1,7 @@
 from rest_framework import viewsets, status
 from rest_framework.response import Response
 
-from .models import *
+from .models import Letter, Package, Typeofletter, Packagetype
 from .serializers import LeterSerializer, PackageSerializer, TypeofletterSerializer, PackagetypeSerializer
 
 
@@ -10,15 +10,12 @@ class LetterViewSet(viewsets.ModelViewSet):
     serializer_class = LeterSerializer
 
     def create(self, request, *args, **kwargs):
-        if len(str(request.data['senders_index'])) < 6:
-            request.data['senders_index'] = str(request.data['senders_index'])
-            while len(request.data['senders_index']) != 6:
-                request.data['senders_index'] = f"0" + request.data['senders_index']
+        request.data['senders_index'] = '0' * (6 - len(str(request.data['senders_index']))) + str(
+            request.data['senders_index'])
 
-        if len(str(request.data['recipients_index'])) < 6:
-            request.data['recipients_index'] = str(request.data['recipients_index'])
-            while len(request.data['recipients_index']) != 6:
-                request.data['recipients_index'] = f"0" + request.data['recipients_index']
+        request.data['recipients_index'] = '0' * (6 - len(str(request.data['recipients_index']))) + str(
+            request.data['recipients_index'])
+
         serializer = self.serializer_class(data=request.data, )  # or request.data
 
         if serializer.is_valid():
@@ -33,17 +30,13 @@ class PackageViewSet(viewsets.ModelViewSet):
     serializer_class = PackageSerializer
 
     def create(self, request, *args, **kwargs):
-        if len(str(request.data['senders_index'])) < 6:
-            request.data['senders_index'] = str(request.data['senders_index'])
-            while len(request.data['senders_index']) != 6:
-                request.data['senders_index'] = f"0" + request.data['senders_index']
+        request.data['senders_index'] = '0' * (6 - len(str(request.data['senders_index']))) + str(
+            request.data['senders_index'])
 
-        if len(str(request.data['recipients_index'])) < 6:
-            request.data['recipients_index'] = str(request.data['recipients_index'])
-            while len(request.data['recipients_index']) != 6:
-                request.data['recipients_index'] = f"0" + request.data['recipients_index']
+        request.data['recipients_index'] = '0' * (6 - len(str(request.data['recipients_index']))) + str(
+            request.data['recipients_index'])
+
         serializer = self.serializer_class(data=request.data, )  # or request.data
-
         if serializer.is_valid():
             serializer.save()
             return Response(data=serializer.data, status=status.HTTP_201_CREATED)

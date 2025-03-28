@@ -130,7 +130,7 @@ celerybeat.pid
 
 # migrations
 .api/migrations/
-
+.coverage
 # Environments
 .env
 .venv

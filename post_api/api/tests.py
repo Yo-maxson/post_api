@@ -2,7 +2,7 @@ from django.test import TestCase
 from .serializers import LeterSerializer, PackageSerializer, TypeofletterSerializer, PackagetypeSerializer
 from rest_framework.test import APIClient
 from rest_framework import status
-from .models import *
+from .models import Typeofletter, Letter, Packagetype, Package
 
 
 class LetterSerializerTest(TestCase):

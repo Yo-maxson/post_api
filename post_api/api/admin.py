@@ -1,5 +1,5 @@
 from django.contrib import admin
-from .models import *
+from .models import Letter, Package, Typeofletter, Packagetype
 
 
 class Letter_det(admin.ModelAdmin):
