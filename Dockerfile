@@ -1,8 +1,11 @@
-FROM python:3.10
-WORKDIR /usr/src/rt_solar
+FROM python:3.10-alpine
+
+WORKDIR /usr/src/pythonProjectTest
 ENV PYTHONDONTWRITEBYTECODE 1
 ENV PYTHONUNBUFFERED 1
+
 RUN pip install --upgrade pip
-COPY requirements_actual.txt ./
-RUN pip install -r requirements_actual.txt
+COPY requirements.txt ./
+RUN pip install -r requirements.txt
+
 COPY . .
