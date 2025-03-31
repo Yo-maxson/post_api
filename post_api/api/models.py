@@ -11,8 +11,8 @@ class Typeofletter(models.Model):
 
     class Meta:
         db_table = "Typeofletter"
-        verbose_name = "Тип писем"
-        verbose_name_plural = "Тип письма"
+        verbose_name = "Тип письма"
+        verbose_name_plural = "Тип писем"
 
 
 class Packagetype(models.Model):
@@ -24,8 +24,8 @@ class Packagetype(models.Model):
 
     class Meta:
         db_table = "Packagetype"
-        verbose_name = "Тип посылок"
-        verbose_name_plural = "Тип посылки"
+        verbose_name = "Тип посылки"
+        verbose_name_plural = "Тип посылок"
 
 
 class Letter(models.Model):
@@ -44,8 +44,8 @@ class Letter(models.Model):
 
     class Meta:
         db_table = "Letter"
-        verbose_name = "Письма"
-        verbose_name_plural = "Письмо"
+        verbose_name = "Письмо"
+        verbose_name_plural = "Письма"
 
 
 
@@ -65,5 +65,5 @@ class Package(models.Model):
 
     class Meta:
         db_table = "Package"
-        verbose_name = "Посылки"
-        verbose_name_plural = "Посылка"
+        verbose_name = "Посылка"
+        verbose_name_plural = "Посылки"
